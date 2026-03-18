@@ -1,0 +1,5 @@
+{
+  "name": "SwayamHelp",
+  "description": "Your AI-powered partner for Government Schemes. Discover, check eligibility, and access official portals.",
+  "requestFramePermissions": ["microphone"]
+}

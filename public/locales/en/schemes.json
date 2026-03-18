@@ -1,0 +1,34 @@
+{
+  "pm-kisan": {
+    "schemeName": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+    "ministry": "Ministry of Agriculture & Farmers Welfare",
+    "description": "A central sector scheme to provide financial assistance to all landholding farmers families in the country to supplement their financial needs in procuring various inputs related to agriculture and allied activities.",
+    "eligibilityCriteria": "All landholding farmers families are eligible. Institutional landholders and professional families (Doctors, Engineers, etc.) are excluded.",
+    "benefits": "₹6,000 per year in three equal installments of ₹2,000 each every four months directly into bank accounts.",
+    "applicationProcess": "Register online at PM-Kisan portal or visit nearest CSC (Common Service Centre)."
+  },
+  "ayushman-bharat": {
+    "schemeName": "Ayushman Bharat - PMJAY",
+    "ministry": "Ministry of Health and Family Welfare",
+    "description": "The world's largest health insurance scheme providing a cover of ₹5 lakhs per family per year for secondary and tertiary care hospitalization.",
+    "eligibilityCriteria": "Families identified by SECC 2011 data based on deprivation and occupational criteria.",
+    "benefits": "Cashless and paperless treatment in empanelled public and private hospitals up to ₹5 Lakhs per year.",
+    "applicationProcess": "Check eligibility on portal, visit empanelled hospital with Aadhaar/Ration card."
+  },
+  "pm-vishwakarma": {
+    "schemeName": "PM Vishwakarma",
+    "ministry": "Ministry of Micro, Small and Medium Enterprises",
+    "description": "Support for artisans and craftspeople who work with tools and hands, providing recognition and credit support.",
+    "eligibilityCriteria": "Artisans engaged in 18 traditional trades (Carpenters, Blacksmiths, etc.). Only one member per family.",
+    "benefits": "PM Vishwakarma Certificate, ₹15,000 toolkit incentive, credit support up to ₹3 Lakhs at 5% interest.",
+    "applicationProcess": "Register at CSCs using biometric authentication."
+  },
+  "lakhpati-didi": {
+    "schemeName": "Lakhpati Didi Scheme",
+    "ministry": "Ministry of Rural Development",
+    "description": "Empowering rural women to earn at least ₹1 Lakh annually through micro-enterprises and SHG support.",
+    "eligibilityCriteria": "Women members of Self Help Groups (SHGs) in rural areas.",
+    "benefits": "Interest-free loans, skill training in LED bulb making, plumbing, drone repair, etc.",
+    "applicationProcess": "Apply through your local SHG or Block Development Office."
+  }
+}

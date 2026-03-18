@@ -1,0 +1,63 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: profiles
+    // Document ID: {uid}
+    // Fields:
+    //   - uid: string (required, immutable)
+    //   - fullName: string (required)
+    //   - email: string (required, email format)
+    //   - age: integer
+    //   - gender: string (Male, Female, Other)
+    //   - casteCategory: string
+    //   - qualification: string
+    //   - occupation: string
+    //   - residence: string
+    //   - annualIncomeRange: string
+    //   - avatarType: string (initials, upload, ai)
+    //   - role: string (user, admin)
+    //   - createdAt: timestamp
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isAuthenticated() && request.auth.uid == uid;
+    }
+
+    function isValidEmail(email) {
+      return email is string && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    function isValidProfile(data) {
+      return data.keys().hasAll(['uid', 'fullName', 'email']) &&
+             data.uid == request.auth.uid &&
+             data.fullName is string && data.fullName.size() > 0 && data.fullName.size() < 100 &&
+             isValidEmail(data.email) &&
+             (data.role == 'user' || data.role == 'admin');
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /profiles/{uid} {
+      allow read: if isOwner(uid);
+      allow create: if isOwner(uid) && isValidProfile(request.resource.data);
+      allow update: if isOwner(uid) && isValidProfile(request.resource.data) &&
+                    request.resource.data.uid == resource.data.uid &&
+                    request.resource.data.role == resource.data.role;
+    }
+  }
+}
